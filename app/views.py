@@ -10,11 +10,13 @@ def index():
     '''
     return render_template('index.html')
 
-
-@app.route('/movie/<movie_id>')
-def movie(movie_id):
+@app.route('/login')
+def login():
 
     '''
-    View movie page function that returns the movie details page and its data
+    View root page function that returns the index page and its data
     '''
-    return render_template('next.html',id = movie_id)
+    return render_template('login.html')
+
+
+

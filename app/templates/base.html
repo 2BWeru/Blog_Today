@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the Pitcher </title>
-        {% endif %}
-    </head>
-    <body>
-        <!-- Navbar block  --> 
-        {% block navbar %}
-        {% include 'navbar.html' %}
-        {% endblock %}
-        <!-- Content block -->
-
-        {% block content %}
-
-        {% endblock%}
-    </body>
-</html>
+{% extends 'bootstrap/base.html'%}
+<!-- Navbar block  --> 
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
