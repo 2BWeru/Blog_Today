@@ -25,3 +25,8 @@ class DevConfig(Config):
     '''
 
     DEBUG = True
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+config_options={
+'development':DevConfig,
+'production':ProdConfig
+}
