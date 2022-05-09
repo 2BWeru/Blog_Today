@@ -1,4 +1,14 @@
+import email
 from . import db
+
+# profile class
+# class Profile:
+#       def __init__(self,id,name,email,image):
+#        self.id = id
+#        self.name = name 
+#        self.email = email
+#        self.image = image
+
 
 class User(db.Model):
   __tablename__= 'users'
