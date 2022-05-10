@@ -1,81 +1,104 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container-fluid">
-<section class="vh-300" style="background-color:thistle">
-   <br>
-    <div class="container h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-lg-10 col-xl-9">
-          <div class="card text-black" style="border-radius: 25px;">
-            <div class="card-body p-sm-3">
-              <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-  
-                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-  
-                  <form class="mx-1 mx-md-4">
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="text" id="form3Example1c" class="form-control" />
-                        <label class="form-label" for="form3Example1c">Your Name</label>
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="email" id="form3Example3c" class="form-control" />
-                        <label class="form-label" for="form3Example3c">Your Email</label>
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="password" id="password" class="form-control" />
-                        <label class="form-label" for="password">Password</label>
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-0">
-                          <input type="password" id="password" class="form-control" />
-                          <label class="form-label" for="password">Repeat your Password</label>
-                        </div>
-                    </div>
-  
-                    <div class="form-check d-flex justify-content-center mb-5">
-                      <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                      <label class="form-check-label" for="form2Example3">
-                        I agree all statements in <a href="#!">Terms of service</a>
-                      </label>
-                    </div>
-  
-                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="button" class="btn btn-primary btn-lg">Register</button>
-                    </div>
-  
-                  </form>
-  
-                </div>
-                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-  
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                    class="img-fluid" alt="Sample image">
-  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
+ .login_content {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   display: flex;
+    justify-content: center; 
+   align-items: center; 
+   height: 150vh;
+   background: linear-gradient(45deg, rgb(25, 106, 143), rgb(8, 32, 56));
+   font-family: "Sansita Swashed", cursive;
+ }
+ .center {
+   position: relative;
+   padding: 50px 90px;
+   background: #fff;
+   border-radius: 10px;
+ }
+ .center h1 {
+   font-size: 2em;
+   border-left: 5px solid dodgerblue;
+   padding: 10px;
+   color: #000;
+   letter-spacing: 5px;
+   margin-bottom: 60px;
+   font-weight: bold;
+   padding-left: 10px;
+ }
+ .center .inputbox {
+   position: relative;
+   width: 300px;
+   height: 50px;
+   margin-bottom: 50px;
+ }
+ .center .inputbox input {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   border: 2px solid #000;
+   outline: none;
+   background: none;
+   padding: 10px;
+   border-radius: 10px;
+   font-size: 1.2em;
+ }
+ .center .inputbox:last-child {
+   margin-bottom: 0;
+ }
+ .center .inputbox span {
+   position: absolute;
+   top: 14px;
+   left: 20px;
+   font-size: 1em;
+   transition: 0.6s;
+   font-family: sans-serif;
+ }
+ .center .inputbox input:focus ~ span,
+ .center .inputbox input:valid ~ span {
+   transform: translateX(-13px) translateY(-35px);
+   font-size: 1em;
+ }
+ .center .inputbox [type="button"] {
+   width: 50%;
+   background: dodgerblue;
+   color: #fff;
+   border: #fff;
+ }
+ .center .inputbox:hover [type="button"] {
+   background: linear-gradient(45deg, greenyellow, dodgerblue);
+ }
+ 
+ </style>
+ <div class="login_content">
+ <div class="center">
+   <h1>Our Newsletter</h1>
+   <form>
+    <div class="inputbox">
+      <input type="text" required="required">
+      <span>Username</span>
     </div>
-    <br>
-    <br>
-  </section>
-  </div>
+     <div class="inputbox">
+       <input type="text" required="required">
+       <span>Email</span>
+     </div>
+     <div class="inputbox">
+       <input type="text" required="required">
+       <span>Password</span>
+     </div>
+     <div class="inputbox">
+      <input type="text" required="required">
+      <span>Repeat password</span>
+    </div>
+     <div class="inputbox">
+       <input type="button" value="submit">
+     </div>
+   </form>
+ </div>
+ </div>
   {% endblock content%}

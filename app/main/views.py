@@ -30,6 +30,11 @@ def sign_up():
     
     return render_template('sign_up.html', title = 'Registration')
 
+@main.route('/profile')
+def profile():
+
+    
+    return render_template('profile.html', title = 'Profile')
 
 
 
