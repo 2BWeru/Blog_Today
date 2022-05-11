@@ -1,31 +1,25 @@
+import os
+
+
 class Config:
-    '''
-    General configuration parent class
-    '''
-    pass
-
-
+   
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wamaitha:Wammy@localhost/pitch'
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
+    SECRET_KEY = 'Yellow'
+   
+    
 
 class ProdConfig(Config):
-    '''
-    Production  configuration child class
-
-    Args:
-        Config: The parent configuration class with General configuration settings
-    '''
-    pass
+    
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 
 class DevConfig(Config):
-    '''
-    Development  configuration child class
-
-    Args:
-        Config: The parent configuration class with General configuration settings
-    '''
+    
 
     DEBUG = True
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    
+
 config_options={
 'development':DevConfig,
 'production':ProdConfig

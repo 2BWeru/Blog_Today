@@ -6,7 +6,7 @@ from app.models import User
 app = create_app('development')
 
 manager = Manager(app)
-manager.add_command('runserver', Server())
+manager.add_command('server', Server())
 
 @manager.shell
 def make_shell_context():

@@ -1,21 +1,28 @@
 from . import db
+# from flask_login import UserMixin
+
 
 class User(db.Model):
   __tablename__= 'users'
   id = db.Column(db.Integer,primary_key = True)
   username = db.Column(db.String(255))
-  email = db.Column(db.String(255))
-  
+  password = db.Column(db.String(80))
+  confirm_password = db.Column(db.String(80))
 
-  def __repr__(self):
+#   def save_u(self):
+#         db.session.add(self)
+#         db.session.commit()
+
+#   def delete(self):
+#         db.session.delete(self)
+#         db.session.commit()
+
+
+def __repr__(self):
         return f'User {self.username}'
 
 
-class Role(db.Model):
-    __tablename__ = 'roles'
+  
 
-    id = db.Column(db.Integer,primary_key = True)
-    name = db.Column(db.String(255))
 
-    def __repr__(self):
-        return f'User {self.name}'
+

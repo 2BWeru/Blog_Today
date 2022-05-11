@@ -10,7 +10,7 @@
    display: flex;
     justify-content: center; 
    align-items: center; 
-   height: 150vh;
+   height: 100vh;
    background: linear-gradient(45deg, rgb(25, 106, 143), rgb(8, 32, 56));
    font-family: "Sansita Swashed", cursive;
  }
@@ -77,27 +77,18 @@
  </style>
  <div class="login_content">
  <div class="center">
-   <h1>Our Newsletter</h1>
-   <form>
-    <div class="inputbox">
-      <input type="text" required="required">
-      <span>Username</span>
-    </div>
-     <div class="inputbox">
-       <input type="text" required="required">
-       <span>Email</span>
-     </div>
-     <div class="inputbox">
-       <input type="text" required="required">
-       <span>Password</span>
-     </div>
-     <div class="inputbox">
-      <input type="text" required="required">
-      <span>Repeat password</span>
-    </div>
-     <div class="inputbox">
-       <input type="button" value="submit">
-     </div>
+   <h1>Pitch_hole</h1>
+   <form method="POST" action="">
+     {{form.hidden_tag()}}
+     <div class="div">{{form.username}}</div>
+      <br>
+      <div class="div">{{form.email}}</div>
+      <br>
+     <div class="div">{{form.password}}</div>
+      <br>
+      <div class="div">{{form.password_confirm}}</div>
+      <br>
+     <div class="inputbox">{{form.submit}}</div>
    </form>
  </div>
  </div>
