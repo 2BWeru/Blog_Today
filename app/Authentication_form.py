@@ -13,13 +13,10 @@ class RegisterForm(FlaskForm):
       password = PasswordField('Password',validators = [InputRequired(),
         EqualTo('password_confirm',message = 'Passwords must match')],render_kw={"placeholder":"Password"})
     
-      password_confirm = PasswordField(validators = [InputRequired()],render_kw={"placeholder":"Confirm password"})
-      
-      
       submit = SubmitField("Register")
 
 # shows whether the username already exist
-      def validate_email(self,user):
+      def validate_username(self,user):
             existing_user_username = User.query.filter_by(
                   username = user).first()
 

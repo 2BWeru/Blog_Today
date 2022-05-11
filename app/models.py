@@ -7,7 +7,7 @@ class User(db.Model):
   id = db.Column(db.Integer,primary_key = True)
   username = db.Column(db.String(255))
   password = db.Column(db.String(80))
-  confirm_password = db.Column(db.String(80))
+  pass_secure = db.Column(db.String(255))
 
 #   def save_u(self):
 #         db.session.add(self)
