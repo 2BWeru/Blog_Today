@@ -83,14 +83,15 @@
 <div class="center">
   <h1>Our Newsletter</h1>
   <form method="Post" action="">
-     {{form.hidden_tag()}}
-     {{form.username}}
-     {{form.password}}
+    {{login_form.hidden_tag()}}
+    <div class="div">{{login_form.email}}</div>
+     <br>
+     <div class="div">{{login_form.password}}</div>
 
      <br><br>
-      <div class="inputbox">{{form.submit}}</div>
+      <div class="inputbox">{{login_form.submit}}</div>
   
-          <p>Don't have an account <span><a href={{url_for('main.register')}}>sign_up</a></span></p>
+          <p>Don't have an account <span><a href={{url_for('auth.register')}}>sign_up</a></span></p>
   </form>
 </div>
 </div>
