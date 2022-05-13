@@ -7,15 +7,16 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="{{url_for('main.index')}}">Home</a></li>
         <li><a href="{{url_for('main.category')}}">Category</a></li>
-           {% if current_user.is_authenticated %}
+        <li><a href="{{url_for('auth.register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {% if current_user.is_authenticated %}
         <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
         <li><a href="{{url_for('auth.logout')}}">log out</a></li>
-      </ul>
-      {% else %}
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{url_for('auth.register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        {% else %}
         <li><a href="{{url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        {% endif %}
       </ul>
-      {%endif%}
+   
     </div>
   </nav>

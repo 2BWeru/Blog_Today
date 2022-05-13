@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% import 'bootstrap/wtf.html' as wtf%}
+
 
 {% block content %}
 <style>
@@ -80,7 +80,16 @@
  <div class="center">
    <h1>Pitch_hole</h1>
    <form method="POST" action="">
-     <div class="div">{{wtf.quick_form(registration_form)}}</div>
+     {{form.hidden_tag()}}
+     <div class="div">{{form.username}}</div>
+      <br>
+      <div class="div">{{form.email}}</div>
+      <br>
+     <div class="div">{{form.password}}</div>
+     <br>
+     <div class="div">{{form.confirm_password}}</div>
+      <br>
+     <div class="inputbox">{{form.submit}}</div>
    </form>
  </div>
  </div>
