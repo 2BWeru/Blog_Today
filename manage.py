@@ -5,7 +5,7 @@ from app.models import User
 
 
 # creating app instance
-app = create_app('development')
+app = create_app('production')
 
 manager = Manager(app)
 manager.add_command('runserver',Server)
