@@ -6,11 +6,11 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wamaitha:Wammy@localhost/pitch'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY = 'Yellow'
-    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_SERVER = 'jaelweru5@.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
-    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    MAIL_USERNAME = os.environ.get("Wammy")
+    MAIL_PASSWORD = os.environ.get("1234567")
     SIMPLEMDE_JS_IIFE = True
     SIMPLEMDE_USE_CDN = True
      
