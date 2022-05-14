@@ -39,7 +39,13 @@
     </style>
     <!-- end navbar -->
     {% block content %}
+    {%block styles %}
+{{super()}}
+<!--Importing the simple mde css and js files  -->
+{{ simplemde.css}}
+{{ simplemde.js }}
 
+{% endblock styles %}
     {% endblock content %}
     <br>
     <!-- footer -->

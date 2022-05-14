@@ -6,16 +6,23 @@
       </div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="{{url_for('main.index')}}">Home</a></li>
-        <li><a href="{{url_for('main.category')}}">Category</a></li>
-        <li><a href="{{url_for('auth.register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <br>
+        <li><a href="{{url_for('main.new_pitch')}}">New pitch</a></li>  
+        </ul>
+        <ul class="nav navbar-nav">
+        <li><a href="{{url_for('main.all_pitches')}}">All pitches</a></li>
+        <br>
+        <li><a href="{{url_for('auth.register')}}"><span class="glyphicon glyphicon-user">Sign up</span></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        {% if current_user.is_authenticated %}
-        <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
-        <li><a href="{{url_for('auth.logout')}}">log out</a></li>
-        {% else %}
-        <li><a href="{{url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        {% endif %}
+        <li><a href="{{url_for('auth.logout')}}"><span class="glyphicon glyphicon-log-in">log out</span></a></li>
+          <br> 
+        
+      </ul>
+      <ul>
+        <li><a href="{{url_for('main.account',uname = current_user.username)}}"><span class="glyphicon glyphicon-log-in">My account</span></a></li>
+        <br>
+        <li><a href="{{url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in">log in</span></a></li>
       </ul>
    
     </div>

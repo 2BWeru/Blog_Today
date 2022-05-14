@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+{% import 'macros.html' as macro %}
 
 {% block content %}
 <!-- css styles -->
 <style>
     .bg-no-overlay {
-  background: url("../static/images/u.images/istockphoto-1165916723-612x612.jpg");
+  background: url("https://blog-cdn.everhour.com/blog/wp-content/uploads/2021/02/desk-setup-idea-5.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -19,14 +20,16 @@
   <div class="row text-center">
   <h1>This is a background image<br> with NO overlay.</h1>
       <br><br>
-      <button type="button" class="btn btn-primary btn-lg">Get Started</button>
+      
+      
 </div>
 </div>
 <!-- categories -->
 <div class="container-fluid text-center">
     <h2>Pitches</h2>
-    <h4>What we offer</h4>
+    <h4>{{ macro.display(pitches)}}</h4>
     <br>
+</div>
     <div class="row">
       <div class="col-sm-4">
         <span class="glyphicon glyphicon-off"></span>
@@ -63,4 +66,25 @@
       </div>
     </div>
   </div>
+ 
+  <!-- <div  class="container" id="particles-js">
+    <h2 class="text-center" id="posts">All Pitches</h2>
+<ul class="nav nav-pills nav-justified nav-fill" role="tablist">
+    <li class="nav-item" >
+        <a id ="cats" class="nav-link" data-toggle="tab" href="#all"><strong>All Pitches</strong> </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id ="cats" data-toggle="tab" href="#jobs">Job Pitches</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id ="cats" data-toggle="tab" href="#music">Music Pitches</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id ="cats"data-toggle="tab" href="#lo">Love Pitches</a>
+    </li>
+</ul>
+
+</div> -->
+</div>
+
 {% endblock content%}
