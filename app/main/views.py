@@ -81,7 +81,8 @@ def new_pitch():
     return render_template("new_pitch.html", title = "New_pitch", form = pitch_form)
 
 
-@main.route('/comment/<int:pitch_id>' , methods=['GET', 'POST'])
+@main.route('/comment/<int:pitch_id>' , methods = ['GET', 'POST'])
+@login_required
 def comment(pitch_id):
     form = CommentForm()
     pitch = Pitch.query.get(pitch_id)
@@ -93,7 +94,7 @@ def comment(pitch_id):
         new_comment = Comment(comment = comment,user_id = user_id,pitch_id = pitch_id)
         new_comment.save_c()
         return redirect(url_for('main.comment', pitch_id = pitch_id))
-    return render_template('all_pitches.html', form =form, pitch = pitch,all_comments=all_comments)
+    return render_template('comment.html', form =form, pitch = pitch,all_comments=all_comments)
 
 @main.route('/like/<int:id>',methods = ['POST','GET'])
 @login_required

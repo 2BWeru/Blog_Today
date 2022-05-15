@@ -2,8 +2,40 @@
 {% import 'macros.html' as macro %}
 
 {% block content %}
-<div>
-    {{macro.display(pitches)}}    
-</div>
+<style>
+body{
+  background: linear-gradient(45deg, rgb(47, 255, 255), rgb(14, 93, 173));
+  padding-left: 5px;
+}
+
+h4{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#jobs{
+  float: right;
+}
+#music{
+  float:left
+}
+</style>
+<hr>
+  <div  class="container">
+    <div class="row">
+    <div class="col-sm-3">
+       <div id="music"> Music pitches {{ macro.display(music)}} </div>
+    </div>
+    <div class="col-sm-3">
+       <div id="jobs">Job pitches {{ macro.display(job)}}</div>
+    </div>
+    <div class="col-sm-3">
+      <div id="love">Love pitches {{ macro.display(love)}} </div> 
+    </div>
+    <div class="col-sm-3">
+      <div id="all">All pitches<br>{{ macro.display(pitches) }}</div>
+    </div>
+  </div>
+ </div>
+ .container
+
 
 {% endblock %}

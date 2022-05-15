@@ -7,78 +7,209 @@
     <title>{{title}}</title>
 <!-- bootstrap css only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
+  </head>
 <body>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
+body {
+    background: #cecece
+}
+
+header {
+    background: white;
+    color: black;
+    padding-bottom: 70px;
+    
+}
+
+.left-side,
+.right-side {
+    height: 100vh
+}
+
+.navbar-transparent {
+    background: transparent
+}
+
+.navbar-nav>li>a {
+    color: black
+}
+
+.navbar-nav>li:hover {
+    border-bottom: 1px solid skyblue
+}
+
+.navbar-nav>.active {
+    border-bottom: 1px solid skyblue
+}
+
+.navbar-brand {
+    font-family: 'Allerta Stencil', sans-serif;
+    color: #83ff00
+}
+
+.navbar-brand:hover {
+    color: #fff
+}
+
+.left-side img {
+    padding-top: 100px
+}
+
+.shape {
+    width: 100%;
+    height: 50vh;
+    background: linear-gradient(to bottom,white 70%);
+    position: absolute;
+    /* -webkit-clip-path: ellipse(500px 500px at 10% 5%) */
+}
+/* #721072 */
+
+.right-side {
+    padding-top: 150px
+}
+
+.right-side h1 {
+    font-family: 'Allerta Stencil', sans-serif;
+    font-size: 2.4em;
+    text-align: center
+}
+
+.right-side p {
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bold
+}
+
+.btn.order-button {
+    background: transparent;
+    border: 2px solid #83ff00;
+    color: hsl(89, 100%, 50%);
+    border-radius: 30%;
+    transition: 0.7s
+}
+
+.btn.order-button:hover {
+    border: 2px solid greenyellow;
+    color: greenyellow
+}
+
+ /* footer newsletter */
+footer{
+    background-color:rgb(37, 36, 36);
+    margin-top: 1px;
+}
+h6{
+    color:white;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    min-height: calc(1.5em + .75rem + 2px);
+    padding: .575rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: black;
+    background-color: white;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 52px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.card{
+
+    padding: 20px;
+    background-color: white;
+    padding-bottom: 50px;
+    padding-top: 50px;
+ 
+}
+
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #f9a826;
+    outline: 0;
+    box-shadow: none;
+}
+
+
+.border-rad{
+
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+
+    color: #fff;
+    background-color: #f93826;
+    border-color: #f93826;
+}
+
+
+
+
+.border-rad:hover{
+   
+     background-color: #f93826;
+    border-color: #f93826;
+
+}
+  </style>
     <!-- navbar -->
     {% include 'navbar.html' %}
-    <style>
-        .navbar {
-            margin-bottom: 0;
-            /* background-color: seashell; */
-            z-index: 9999;
-            border: 0;
-            font-size: 12px !important;
-            line-height: 1.42857143 !important;
-            letter-spacing: 4px;
-            border-radius: 0;
-            color:black;
-         }
-        .navbar li a, .navbar .navbar-brand {
-        color: black!important;
-         }
-    
-        .navbar-nav li a:hover, .navbar-nav li.active a {
-        color: black!important;
-        background-color: lightblue !important;
-         }
-    
-        .navbar-default .navbar-toggle {
-        border-color: transparent;
-        color: black !important;
-         }
-    </style>
     <!-- end navbar -->
     {% block content %}
+
     {%block styles %}
-{{super()}}
-<!--Importing the simple mde css and js files  -->
-{{ simplemde.css}}
-{{ simplemde.js }}
+
+    {{super()}}
+    <!--Importing the simple mde css and js files  -->
+    {{ simplemde.css}}
+    {{ simplemde.js }}
 
 {% endblock styles %}
     {% endblock content %}
     <br>
+    <!-- "bg-dark text-center text-lg-start" -->
     <!-- footer -->
-    <footer class="bg-dark text-center text-lg-start">
+    <footer class="footer navbar-fixed-bottom">
         <div class="container p-4">
           <div class="row">
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-              <h5 class="text-uppercase" style="color: aliceblue;">Footer text</h5>
-
-              <p style="color: aliceblue;">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                aliquam voluptatem veniam, est atque cumque eum delectus sint!
-              </p>
+              <h6 class="d-block mt-3">Subscribe to our newsletter in order not to miss new updates:</h6>
+              <div class="text-center">
+                <div class="mx-5">
+                   <div class="input-group mb-3 mt-4">
+                      <input type="text" class="form-control" placeholder="Enter email" aria-label="Recipient's username" aria-describedby="button-addon2">
+                      <button class="btn btn-success border-rad" type="button" id="button-addon2">Subscribe</button>
+                    </div>
+                </div>
             </div>
+          </div>
             <!--Grid column-->
       
             <!--Grid column-->
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-              <h5 class="text-uppercase" style="color: aliceblue;">Footer text</h5>
+              <h5 class="text-uppercase" style="color: aliceblue;">Contact us :</h5>
       
-              <p style="color: aliceblue;">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                aliquam voluptatem veniam, est atque cumque eum delectus sint!
-              </p>
+              <p style="color: aliceblue;"><mark>Gmail : Pitch_view@gmail.com</mark></p>
+                 <br>
+              <p style="color: aliceblue;"><mark>Instagram : __Pitch__view</mark></p>
+
             </div>
           </div>
         </div>
           <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);color: aliceblue;">
-             © 2020 Copyright:
-          <a class="text-dark" style="color: aliceblue;" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+             © 2022 Copyright:
+          <a class="text-dark" style="color: aliceblue;" href="https://mdbootstrap.com/">Pitch_view</a>
           </div>
+          
       </footer>
     <!-- end of footer -->
 <!-- bootstrap js only -->

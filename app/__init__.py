@@ -42,4 +42,4 @@ def create_app(config_name):
     return app
 
 from app import models
-from .main import views
+from .main import views,error

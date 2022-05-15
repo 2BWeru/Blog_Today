@@ -1,29 +1,30 @@
 
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Pitch_view</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="{{url_for('main.index')}}">Home</a></li>
-        <br>
-        <li><a href="{{url_for('main.new_pitch')}}">New pitch</a></li>  
-        </ul>
-        <ul class="nav navbar-nav">
-        <li><a href="{{url_for('main.all_pitches')}}">All pitches</a></li>
-        <br>
-        <li><a href="{{url_for('auth.register')}}"><span class="glyphicon glyphicon-user">Sign up</span></a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{url_for('auth.logout')}}"><span class="glyphicon glyphicon-log-in">log out</span></a></li>
-          <br> 
-        
-      </ul>
-      <ul>
-        <li><a href="{{url_for('main.account',uname = current_user.username)}}"><span class="glyphicon glyphicon-log-in">My account</span></a></li>
-        <br>
-        <li><a href="{{url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in">log in</span></a></li>
-      </ul>
-   
-    </div>
-  </nav>
+  <div class="container-fluid px-0">	
+    <header>
+      	<div class="shape"></div>	
+      <!-- Navbar -->	
+      <nav class="navbar fixed-top navbar-expand-lg navbar-transparent">
+         <a class="navbar-brand" href="#">Pitch_view</a> 
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> 
+             <span class="navbar-toggler-icon"></span> </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+                 <ul class="navbar-nav mr-auto"> 
+                   <li class="nav-item active"> <a class="nav-link" href="{{url_for('main.index')}}">HOME <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{url_for('main.all_pitches')}}">All pitches</a> </li>
+                     <li class="nav-item"> <a class="nav-link" href="{{url_for('auth.register')}}">Sign_up</a> </li> 
+                     {% if current_user.is_authenticated %}
+                     <li class="nav-item"> <a class="nav-link" href="{{url_for('main.new_pitch')}}">new_pitch</a> </li>
+                     <li class="nav-item"> <a class="nav-link" href="{{url_for('auth.logout')}}">log out</a> </li> 
+                      <li class="nav-item"> <a class="nav-link" href="{{url_for('main.account',uname = current_user.username)}}">My Account</a> </li>
+                      {% else %}
+                      <li class="nav-item"> <a class="nav-link" href="{{url_for('auth.login')}}">log in</a> </li> 
+                      {% endif %}
+                    </ul> 
+                  </div>
+              	</nav>	
+              <!-- ./ end of navbar -->	
+          </div>
+        	</header>	
+        </div>
+  
+  
