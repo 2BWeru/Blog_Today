@@ -1,104 +1,139 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
-<div class="container">
-    <br>
-<section class="section about-section gray-bg" id="about">
-  <div class="container">
-      <div class="row align-items-center flex-row-reverse">
-          <div class="col-lg-6">
-              <div class="about-text go-to">
-                  <h3 class="dark-color">About Me</h3>
-                  <br>
-                  <h6 class="theme-color lead">{{user.username| capitalize}}</h6>
-                  <div>
-                       <!--Displaying user bio-->
-                        {% if user.bio %}
-                            <p> <mark>{{curent_user.bio}}</mark></p>
-                        {%else%}
-                            <p> {{user.username| capitalize}} has no bio </p>
-                        {% endif %}
-                        <p> <mark>{{user.bio}}</mark></p>
-                  </div>
-                  <div class="row about-list">
-                      <div class="col-md-6">
-                          <div class="media">
-                              <label>email</label>
-                              <p>{{user.email}}</p>
-                          </div>
-                          <div class="media">
-                              <label>id</label>
-                              <p>{{user.id}}</p>
-                          </div>
-                          <div class="media">
-                              <label>Residence</label>
-                              <p>Canada</p>
-                          </div>
-                          <div class="media">
-                              <label>Address</label>
-                              <p>California, USA</p>
-                          </div>
-                      </div>
-                      <div class="col-md-6">
-                          <div class="media">
-                              <label>E-mail</label>
-                              <p>info@domain.com</p>
-                          </div>
-                          <div class="media">
-                              <label>Phone</label>
-                              <p>820-885-3321</p>
-                          </div>
-                          <div class="media">
-                              <label>Skype</label>
-                              <p>skype.0404</p>
-                          </div>
-                          <div class="media">
-                              <label>Freelance</label>
-                              <p>Available</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-6">
-              <div class="about-avatar">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
-              </div>
-            
-          </div>
-      </div>
-      <div class="counter">
-          <div class="row">
-              <div class="col-6 col-lg-3">
-                  <div class="count-data text-center">
-                      <h6 class="count h2" data-to="500" data-speed="500">500</h6>
-                      <p class="m-0px font-w-600">Happy Clients</p>
-                  </div>
-              </div>
-              <div class="col-6 col-lg-3">
-                  <div class="count-data text-center">
-                      <h6 class="count h2" data-to="150" data-speed="150">150</h6>
-                      <p class="m-0px font-w-600">Project Completed</p>
-                  </div>
-              </div>
-              <div class="col-6 col-lg-3">
-                  <div class="count-data text-center">
-                      <h6 class="count h2" data-to="850" data-speed="850">850</h6>
-                      <p class="m-0px font-w-600">Photo Capture</p>
-                  </div>
-              </div>
-              <div class="col-6 col-lg-3">
-                  <div class="count-data text-center">
-                      <h6 class="count h2" data-to="190" data-speed="190">190</h6>
-                      <p class="m-0px font-w-600">Telephonic Talk</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-      {% if user == current_user %}
-       <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
-     {% endif %}
-  </div>
-</section>
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+html,
+main {
+    height: 750px;
+}
+
+main {
+    display: grid;
+    place-items: center;
+    background: linear-gradient(45deg, rgb(25, 106, 143), rgb(8, 32, 56));
+    
+}
+
+.card {
+	color:black;
+    width: 350px;
+    border-radius: 10px;
+    background: white;
+/* box-shadow:  20px 20px 60px #913ca0, 
+             -20px -20px 60px #c552d8; */
+    border: none
+}
+
+.neo-button {
+    width: 40px;
+    height: 40px;
+    outline: 0 !important;
+    cursor: pointer;
+    color: black;
+    font-size: 15px;
+    border: none;
+    margin-right: 10px;
+    border-radius: 50%;
+background: linear-gradient(145deg, #dc4e41, #b74cc9);
+box-shadow: inset 20px 20px 60px #5df1d9, 
+             inset -20px -20px 60px #f5feff;
+}
+
+.num{
+	
+	color:black !important;
+}
+
+.line{
+	color:#fff;
+}
+
+.neo-button:active {
+   border-radius: 50%;
+background: white;
+/* box-shadow:  28px 28px 57px #933da2, 
+             -28px -28px 57px #c351d6; */
+}
+
+.fa-facebook {
+    color: #3b5998
+}
+
+.fa-linkedin {
+    color: #0077b5
+}
+
+.fa-google {
+    color: #dc4e41
+}
+
+.fa-youtube {
+    color: #cd201f
+}
+
+.fa-twitter {
+    color: #55acee
+}
+
+.profile_button{
+	color:black;
+	padding:10px; 
+   border:none;
+   outline:0 !important;
+border-radius: 50px;
+background: white;
+box-shadow:  28px 28px 57px #933da2, 
+             -28px -28px 57px #c351d6;
+	
+}   
+</style>
+<main>  
+<div class="container d-flex justify-content-center">
+    <div class="card p-3 py-4">
+        <div class="text-center"> 
+		<img src="https://i.imgur.com/stD0Q19.jpg" width="200" height="100px" class="rounded-circle">
+            <h3 class="mt-2">{{user.username}}</h3>
+			<span class="mt-1 clearfix">{{user.email}}</span>
+            <br>
+			<div class="mt-4">{{user.bio}}</div>
+			<div class="row mt-3 mb-3">
+			</div>
+			
+			<hr class="line">
+            <div class="div">
+            <!--Displaying user bio-->
+                {% if user.bio %}
+                <small>{{user.bio}}</small>
+               {%else%}
+                <p> {{user.username| capitalize}} has no bio </p>
+                <small>To update bio info, press the button bellow:</small>
+               {% endif %}
+            </div>
+			  
+			 <div class="profile mt-5">
+                {% if user == current_user %}
+                <button class="profile_button px-5"><a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a></button>
+              {% endif %}
+			 <div class="posts">
+                 <div class="row">
+                     <div class="col">{{user.post}}</div>
+                 </div>
+             </div>
+       
+		</div>
+			   
+        </div>
+    </div>
 </div>
+</main>
 {% endblock content %}
