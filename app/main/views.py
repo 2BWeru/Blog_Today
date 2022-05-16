@@ -13,24 +13,19 @@ from ..models import Pitch, User,Comment,Upvote,Downvote
 def index():
     pitches = Pitch.query.all()
     job = Pitch.query.filter_by(category = 'Job').all() 
-    love = Pitch.query.filter_by(category = 'love').all()
     music = Pitch.query.filter_by(category = 'Music').all()
    
     
-    
-    return render_template('index.html', title = "Home page", pitches=pitches, job=job, love=love,music=music)
+    return render_template('index.html', title = "Home page", pitches=pitches, job=job,music=music)
 
 
-
-# Category
 @main.route('/all_pitches', methods = ['GET'])
 def all_pitches():
     pitches = Pitch.query.all()
     job = Pitch.query.filter_by(category = 'Job').all() 
-    love = Pitch.query.filter_by(category = 'love').all()
     music = Pitch.query.filter_by(category = 'Music').all()
     
-    return render_template('all_pitches.html', title = 'All_pitches',pitches=pitches, job=job, love=love,music=music)
+    return render_template('all_pitches.html', title = 'All_pitches',pitches=pitches, job=job,music=music)
 
 
 @main.route('/user/<uname>', methods=["GET", "POST"])
