@@ -18,18 +18,23 @@ h4{
   float:left
 }
 </style>
-<hr>
+<br><br>
   <div  class="container">
     <div class="row">
-    <div class="col-lg-4">
-       <div id="music"> Music pitches {{ macro.display(music)}} </div>
-    </div>
-    <div class="col-lg-4">
-       <div id="jobs">Job pitches {{ macro.display(job)}}</div>
-    </div>
-    <div class="col-lg-4">
-      <div id="all">All pitches<br>{{ macro.display(pitches) }}</div>
-    </div>
+      <div class="col-lg-6">
+        <span class="glyphicon glyphicon-off"></span>
+        <h4><mark>Job Pitches</mark></h4>
+        <br>
+        <div>{{ macro.display(job)}}</div>
+      </div>
+      <br>
+      <div class="col-lg-6">
+        <span class="glyphicon glyphicon-heart"></span>
+        <h4><mark>Music Pitches</mark></h4>
+        <br>
+        <div>{{ macro.display(music)}}</div>
+      </div>
+      </div>
   </div>
  </div>
  

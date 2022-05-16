@@ -33,7 +33,7 @@ def register():
         user = User(email = form.email.data, username = form.username.data,password = form.password.data)
         user.save_user()
     
-        mail_message("Welcome to Pitch_view","email/welcome_user",user.email,user=user)
+        # mail_message("Welcome to Pitch_view","email/welcome_user",user.email,user=user)
         
         return redirect(url_for('main.account',uname=user))
 
