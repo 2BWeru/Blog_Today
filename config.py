@@ -19,7 +19,11 @@ class Config:
 
 class ProdConfig(Config):
     
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')# or the relevant config var
+    if SQLALCHEMY_DATABASE_URI and SQLALCHEMY_DATABASE_URI.startswith("postgress://"):
+        SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgress://","postgressql://",1)
+        
+        #rest of connection code using the connection string 'uri'
 
 
 class DevConfig(Config):
