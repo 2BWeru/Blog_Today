@@ -3,4 +3,5 @@ export DATABASE_URL='postgres://tfkwsiruaqnbxu:2b54036cf2d10d0cb4ae4a836970ba1e2
 export SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wamaitha:Wammy@localhost/pitch'
 export MAIL_USERNAME='pitcher24@gmail.com'
 export MAIL_PASSWORD='1234567'
+
 python3.8 manage.py server
