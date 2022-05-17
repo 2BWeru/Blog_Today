@@ -11,12 +11,12 @@ from ..models import Pitch, User,Comment,Upvote,Downvote
 
 @main.route('/')
 def index():
-    pitches = Pitch.query.all()
+    
     job = Pitch.query.filter_by(category = 'Job').all() 
     music = Pitch.query.filter_by(category = 'Music').all()
    
     
-    return render_template('index.html', title = "Home page", pitches=pitches, job=job,music=music)
+    return render_template('index.html', title = "Home page", job=job,music=music)
 
 
 @main.route('/all_pitches', methods = ['GET'])

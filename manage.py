@@ -7,7 +7,7 @@ from app.models import User
 # creating app instance
 app = create_app('development')
 
-manager = Manager(app)
+manager = Manager(app,db)
 manager.add_command('runserver',Server)
 
 migrate = Migrate(app,db)
