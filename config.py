@@ -4,6 +4,7 @@ import os
 class Config:
 
     SECRET_KEY = 'Yellow'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URL') 
     SQLALCHEMY_TRACK_MODIFICATIONS=False
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
@@ -14,8 +15,7 @@ class Config:
     
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URL') 
-
+    pass
 
 class DevConfig(Config):
     
