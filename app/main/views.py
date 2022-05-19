@@ -1,22 +1,22 @@
 from crypt import methods
+from email.quoprimime import quote
 from flask import render_template,abort ,request,redirect, session, url_for
 from flask_login import login_required,current_user, user_accessed
+from app.requests import get_quote
 from .forms import UpdateProfile,PitchForm,CommentForm
 from .. import db
 from . import main
 import markdown2  
 from .. import db
-from ..models import Pitch, User,Comment,Upvote,Downvote
+from ..models import Blog, User,Comment
 
 
 @main.route('/')
-def index():
+def entry():
     
-    job = Pitch.query.filter_by(category = 'Job').all() 
-    music = Pitch.query.filter_by(category = 'Music').all()
-   
+    quote=get_quote()
     
-    return render_template('index.html', title = "Home page", job=job,music=music)
+    return render_template('entry.html', title = "Home page",quote=quote)
 
 
 @main.route('/all_pitches', methods = ['GET'])
