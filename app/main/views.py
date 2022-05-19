@@ -2,8 +2,14 @@ from crypt import methods
 from email.quoprimime import quote
 from flask import render_template,abort ,request,redirect, session, url_for
 from flask_login import login_required,current_user, user_accessed
+<<<<<<< HEAD
 from app.requests import get_quote
 from .forms import UpdateProfile,PitchForm,CommentForm
+=======
+
+from app.requests import get_quote
+from .forms import UpdateProfile,BlogForm,CommentForm
+>>>>>>> 4bf4cab... create blog pdate function
 from .. import db
 from . import main
 import markdown2  
@@ -13,19 +19,25 @@ from ..models import Blog, User,Comment
 
 @main.route('/')
 def entry():
+<<<<<<< HEAD
     
+=======
+>>>>>>> 4bf4cab... create blog pdate function
     quote=get_quote()
     
     return render_template('entry.html', title = "Home page",quote=quote)
 
 
-@main.route('/all_pitches', methods = ['GET'])
-def all_pitches():
-    pitches = Pitch.query.all()
-    job = Pitch.query.filter_by(category = 'Job').all() 
-    music = Pitch.query.filter_by(category = 'Music').all()
+@main.route('/all_blogs', methods = ['GET'])
+def all_blogs():
+    blogs = Blog.query.all()
+    self_love=Blog.query.filter_by(category = 'self_love').all() 
+    hope=Blog.query.filter_by(category = 'hope').all() 
+    mental_health=Blog.query.filter_by(category = 'mental_health').all() 
+    work = Blog.query.filter_by(category = 'work').all() 
+    music =Blog.query.filter_by(category = 'Music').all()
     
-    return render_template('all_pitches.html', title = 'All_pitches',pitches=pitches, job=job,music=music)
+    return render_template('all_blogs.html', title = 'All_blogs',blogs=blogs, work=work,music=music,hope=hope,mental_health=mental_health,self_love=self_love)
 
 
 @main.route('/user/<uname>', methods=["GET", "POST"])
@@ -33,7 +45,7 @@ def all_pitches():
 def account(uname):
     user = User.query.filter_by(username = uname).first()
     user_id = current_user._get_current_object().id
-    posts = Pitch.query.filter_by(user_id = user_id).all()
+    posts = Blog.query.filter_by(user_id = user_id).all()
     
 
     if user is None:
@@ -61,64 +73,64 @@ def update_profile(uname):
     return render_template('profile/update_profile.html',form =form)
 
 
-@main.route('/new_pitch' , methods = ["GET","POST"])
+@main.route('/new_blog' , methods = ["GET","POST"])
 @login_required
-def new_pitch():
-    pitch_form = PitchForm()
-    if pitch_form.validate_on_submit():
-        title = pitch_form.title.data
-        post = pitch_form.post.data
-        category = pitch_form.category.data
-        new_pitch_object = Pitch(post = post, user_id= current_user.id,category = category,title = title)
-        new_pitch_object.save_pitch()
-        return redirect(url_for('main.all_pitches'))
+def new_blog():
+    blog_form = BlogForm()
+    if blog_form.validate_on_submit():
+        title = blog_form.title.data
+        post = blog_form.post.data
+        category = blog_form.category.data
+        new_blog_object = Blog(post = post, user_id= current_user.id,category = category,title = title)
+        new_blog_object.save_b()
+        return redirect(url_for('main.all_blogs'))
 
-    return render_template("new_pitch.html", title = "New_pitch", form = pitch_form)
+    return render_template("new_blog.html", title = "New_Blog", form = blog_form)
 
 
-@main.route('/comment/<int:pitch_id>' , methods = ['GET', 'POST'])
+@main.route('/comment/<int:blog_id>' , methods = ['GET', 'POST'])
 @login_required
-def comment(pitch_id):
+def comment(blog_id):
     form = CommentForm()
-    pitch = Pitch.query.get(pitch_id)
-    all_comments = Comment.query.filter_by(pitch_id = pitch_id).all()
+    blog = Blog.query.get(blog_id)
+    all_comments = Comment.query.filter_by(blog_id = blog_id).all()
     if form.validate_on_submit():
         comment = form.comment.data 
-        pitch_id = pitch_id
+        blog_id = blog_id
         user_id = current_user._get_current_object().id
-        new_comment = Comment(comment = comment,user_id = user_id,pitch_id = pitch_id)
+        new_comment = Comment(comment = comment,user_id = user_id,blog_id = blog_id)
         new_comment.save_c()
-        return redirect(url_for('main.comment', pitch_id = pitch_id))
-    return render_template('comment.html', form =form, pitch = pitch,all_comments=all_comments)
+        return redirect(url_for('main.comment', blog_id = blog_id))
+    return render_template('comment.html', form =form, blog = blog,all_comments=all_comments)
 
-@main.route('/like/<int:id>',methods = ['POST','GET'])
+@main.route("/blog/<int:id>/delete", methods=["POST"])
 @login_required
-def like(id):
-    get_pitches = Upvote.get_upvotes(id)
-    valid_string = f'{current_user.id}:{id}'
-    for pitch in get_pitches:
-        to_str = f'{pitch}'
-        print(valid_string+" "+to_str)
-        if valid_string == to_str:
-            return redirect(url_for('main.all_pitches',id=id))
-        else:
-            continue
-    new_vote = Upvote(user = current_user, pitch_id=id)
-    new_vote.save()
-    return redirect(url_for('main.all_pitches',id=id))
+def delete_comment(id):
+    comment=Comment.get_comment(id)
+    db.session.delete(comment)
+    db.session.commit()
+    return redirect(url_for("main.comment", id=comment.id))
 
-@main.route('/dislike/<int:id>',methods = ['POST','GET'])
+@main.route('/blog/<id>/update', methods=['GET', 'POST'])
 @login_required
-def dislike(id):
-    pitch = Downvote.get_downvotes(id)
-    valid_string = f'{current_user.id}:{id}'
-    for p in pitch:
-        to_str = f'{p}'
-        print(valid_string + " " + to_str)
-        if valid_string == to_str:
-            return redirect(url_for('main.all_pitches',id=id))
-        else:
-            continue
-    new_downvote = Downvote(user = current_user, pitch_id=id)
-    new_downvote.save()
-    return redirect(url_for('main.all_pitches',id = id))
+def update_blog(id):
+    blog=Blog.get_blogs(id)
+    blog_form = BlogForm()
+    if blog_form.validate_on_submit():
+        title = blog_form.title.data
+        post = blog_form.post.data
+        category = blog_form.category.data
+        new_blog_object = Blog(post = post, user_id= current_user.id,category = category,title = title)
+        new_blog_object.save_b()
+        return redirect(url_for('main.all_blogs'))
+
+    return render_template("new_blog.html", title = "New_Blog", form = blog_form,blog=blog)
+
+
+@main.route("/blog/<int:id>/delete")
+@login_required
+def delete_blog():
+    blog=Blog.get_blogs()
+    db.session.delete(blog)
+    db.session.commit()
+    return redirect(url_for("main.index", blog_id=blog))
