@@ -4,6 +4,7 @@ import os
 class Config:
 
     SECRET_KEY = 'Yellow'
+    QUOTE_API_BASE_URL='http://quotes.stormconsultancy.co.uk/random.json'
     SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI') 
     SQLALCHEMY_TRACK_MODIFICATIONS=False
     MAIL_SERVER = 'smtp.googlemail.com'
