@@ -1,10 +1,10 @@
-# Pitch_view
+# Blog_with_us
 
 ### Aurthor
 __Betty Weru__
 
 ## Description
-### This is a flask application that  allows users to create their one minute pitch and register to display their pitch. User's who are logged in are allowed to  comment, like or dislike a pitch
+### This is a flask application that  allows users to write blogs and post them . It also allows writes to register, update and delete their blogs. User's who are logged in are allowed to  comment, like or dislike a blog
 
 ## Live link
 ![link] ()
