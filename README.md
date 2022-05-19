@@ -7,7 +7,7 @@ __Betty Weru__
 ### This is a flask application that  allows users to write blogs and post them . It also allows writes to register, update and delete their blogs. User's who are logged in are allowed to  comment, like or dislike a blog
 
 ## Live link
-![link] ()
+![link] (https://pitch-field.herokuapp.com/)
 
 ## Screenshot
 ![image] ()
@@ -54,7 +54,7 @@ source venv/bin/activate
 ## Contact information
 
 #### If you have any question or contributions, please email me at :
-![link](wamaithaweru19@gmail.com)
+![link](https://mail.google.com/mail/data/u/1/)
 
 ## License
 
