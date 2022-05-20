@@ -1,7 +1,7 @@
 from flask import render_template
 from flask_mail import Message
 from . import mail
-subject_pref = 'Pitch_view'
+subject_pref = 'Blog_with_us'
 sender_email = 'jaelweru5@gmail.com'
 
 
