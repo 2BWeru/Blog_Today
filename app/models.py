@@ -57,7 +57,7 @@ class Blog(db.Model):
     comment = db.relationship('Comment',backref='blog',lazy='dynamic')
     time = db.Column(db.DateTime, default = datetime.utcnow)
     category = db.Column(db.String(255), index = True,nullable = False)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'),nullable = False)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable = False)
     
     def save_b(self):
         db.session.add(self)
