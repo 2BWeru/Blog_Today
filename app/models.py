@@ -16,6 +16,7 @@ class User(db.Model,UserMixin):
   email = db.Column(db.String(255),unique = True,index = True)
   password_hash = db.Column(db.String(255))
   pass_secure = db.Column(db.String(255))
+  profile_pic_path = db.Column(db.String())
   address= db.Column(db.String(255))
   Age = db.Column(db.String(255))
   Dateofbirth=db.Column(db.String(255))
@@ -56,7 +57,7 @@ class Blog(db.Model):
     comment = db.relationship('Comment',backref='blog',lazy='dynamic')
     time = db.Column(db.DateTime, default = datetime.utcnow)
     category = db.Column(db.String(255), index = True,nullable = False)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'),nullable = False)
     
     def save_b(self):
         db.session.add(self)
