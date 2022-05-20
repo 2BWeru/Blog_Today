@@ -16,12 +16,11 @@ class User(db.Model,UserMixin):
   email = db.Column(db.String(255),unique = True,index = True)
   password_hash = db.Column(db.String(255))
   pass_secure = db.Column(db.String(255))
-  profile_pic_path = db.Column(db.String(255))
   address= db.Column(db.String(255))
   Age = db.Column(db.String(255))
   Dateofbirth=db.Column(db.String(255))
-  blog = db.relationship('Blog', backref='user', lazy='dynamic')
-  comment = db.relationship('Comment', backref='user', lazy='dynamic')
+  blogs = db.relationship('Blog', backref='user', lazy='dynamic')
+  comments = db.relationship('Comment', backref='user', lazy='dynamic')
 
   def save_user(self):
         db.session.add(self)
@@ -55,9 +54,9 @@ class Blog(db.Model):
     title = db.Column(db.String(255),nullable = False)
     post = db.Column(db.Text(), nullable = False)
     comment = db.relationship('Comment',backref='blog',lazy='dynamic')
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     time = db.Column(db.DateTime, default = datetime.utcnow)
     category = db.Column(db.String(255), index = True,nullable = False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     def save_b(self):
         db.session.add(self)
