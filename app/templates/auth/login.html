@@ -8,7 +8,8 @@ main {
   margin:0;
   padding:0;
   font-family: sans-serif;
-  background: linear-gradient(#6a0d9581, #2307727a);
+  height: 1200px;
+  background: linear-gradient(#FF7E7E, #FF4848);
 }
 
 .login-box {
@@ -20,7 +21,7 @@ main {
   transform: translate(-50%, -50%);
   background: rgba(0,0,0,.5);
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  box-shadow: 0 15px 25px rgba(71, 1, 69, 0.6);
   border-radius: 10px;
 }
 
@@ -175,10 +176,10 @@ main {
       <form method="POST">
          {{form.hidden_tag()}}
          <div class="user-box">
-           <div>{{form.username}}</div>
+            {{form.username}}
          </div>
          <div class="user-box">
-          {{form.password}}
+           {{form.password}}
          </div>
         <button>{{form.submit}}</button>
     <p>Don't have an account <span><a href={{url_for('auth.register')}}>sign_up</a></span></p>
