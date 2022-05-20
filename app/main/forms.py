@@ -9,9 +9,9 @@ class UpdateProfile(FlaskForm):
     submit = SubmitField('Submit')
 
 
-class PitchForm(FlaskForm):
+class BlogForm(FlaskForm):
     title = StringField(validators=[InputRequired()],render_kw={"placeholder":"Title"})
-    category = SelectField(choices=[('Music','Music'),('Job','Job')],validators=[InputRequired()])
+    category = SelectField(choices=[('Music','Music'),('self_love','self_love'),('mental_health','mental_health'),('work','work')],validators=[InputRequired()])
     post = TextAreaField(validators=[InputRequired()],render_kw={"placeholder":"Your pitch"})
     submit = SubmitField('Pitch')
    

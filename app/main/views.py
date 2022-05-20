@@ -2,14 +2,8 @@ from crypt import methods
 from email.quoprimime import quote
 from flask import render_template,abort ,request,redirect, session, url_for
 from flask_login import login_required,current_user, user_accessed
-<<<<<<< HEAD
-from app.requests import get_quote
-from .forms import UpdateProfile,PitchForm,CommentForm
-=======
-
 from app.requests import get_quote
 from .forms import UpdateProfile,BlogForm,CommentForm
->>>>>>> 4bf4cab... create blog pdate function
 from .. import db
 from . import main
 import markdown2  
@@ -19,10 +13,6 @@ from ..models import Blog, User,Comment
 
 @main.route('/')
 def entry():
-<<<<<<< HEAD
-    
-=======
->>>>>>> 4bf4cab... create blog pdate function
     quote=get_quote()
     
     return render_template('entry.html', title = "Home page",quote=quote)

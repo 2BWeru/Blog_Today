@@ -48,7 +48,8 @@ a {
   padding: 1em;
   /*margin: 2em;*/
   display: flex;
-  align-items: flex-end;
+  text-align: center;
+  align-items: center;
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 5em -1em black;
@@ -119,13 +120,13 @@ a {
 }
 
 .card:before {
-  background: #ddd;
+  background: rgba(116, 9, 9, 0.924);
   width: 250%;
   height: 250%;
 }
 
 .card:after {
-  background: white;
+  background:rgba(116, 9, 9, 0.924);
   width: 200%;
   height: 200%;
 }
@@ -211,30 +212,31 @@ a {
     <hr>
     <br>
     <div class="row">
-      <div class="col-lg-6">
-        <span class="glyphicon glyphicon-off"></span>
-        <h4>hope</h4>
-        <div>{{ macro.display(hope)}}</div>
+      <div class="div"></div>
+      <!-- <div class="col-lg-6">
+        <span class="glyphicon glyphicon-heart"></span>
+        <h4>Food</h4>
+        <div>{{ macro.display(music)}}</div>
       </div>
       <br>
       <div class="col-lg-6">
         <span class="glyphicon glyphicon-heart"></span>
         <h4>Music</h4>
-        <div>{{ macro.display(music)}}</div>
+        <div>{{macro.display(food)}}</div>
       </div>
       </div>
       <br><br>
-    </div> 
+    </div>  -->
     <div class="row">
       <div class="col-lg-6">
         <span class="glyphicon glyphicon-off"></span>
-        <h4>Job</h4>
+        <h4>Self_love</h4>
         <div>{{ macro.display(self_love)}}</div>
       </div>
       <br>
       <div class="col-lg-6">
         <span class="glyphicon glyphicon-heart"></span>
-        <h4>Music</h4>
+        <h4>Mental_health</h4>
         <div>{{ macro.display(mental_health)}}</div>
       </div>
       </div>   
